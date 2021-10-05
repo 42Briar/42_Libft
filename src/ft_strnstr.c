@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strnstr(char *str, char *to_find, unsigned int len)
+#include "Libft.h"
+
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
 	int	i;
 	int	j;

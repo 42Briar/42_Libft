@@ -1,4 +1,6 @@
-void	ft_bzero(void *dst, unsigned int n)
+#include "Libft.h"
+
+void ft_bzero(void *s, size_t n);
 {
 	unsigned char	*dest;
 

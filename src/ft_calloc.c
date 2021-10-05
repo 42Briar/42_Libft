@@ -1,11 +1,12 @@
 #include "libft.h"
 
-void	*ft_calloc(unsigned int n, unsigned int size)
+void	*ft_calloc(size_t n, size_t size)
 {
-	unsigned char	*out;
+	void	*out;
 
-	if (!(out = malloc(n * size)))
+	out = (void *)malloc(n * size);
+	if (out == NULL)
 		return (NULL);
-	while (n-- > 0)
-		out[n] = 0;
+	ft_memset(out, 0, n * size);
+	return (out);
 }

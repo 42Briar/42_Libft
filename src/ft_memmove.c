@@ -1,29 +1,37 @@
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, unsigned int len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int i;
+	unsigned char *dest;
+	unsigned char *sorc;
 
-	i = 0;
-	if (dst > src)
+	if (dst == src)
+		return (dst);
+	dest = dst;
+	sorc = src;
+	if (dest > sorc)
 	{
-		i = len;
-		while (i-- > 0)
-			((char *)dst)[i] = ((char *)src)[i];
+		while (len > 0)
+		{	
+			*(dest + len) = *(sorc + len);
+			len--;
+		}
+		return (dst);
 	}
-	else
+	while (len > 0)
 	{
-		ft_memcpy(dst, src, len); //why does this not work bruh
+		*dest++ = *sorc++;
+		len--;
 	}
-	return (0);
+	return (dst);
 }
 
-int main( void )
-{
-    char buffer[80];
+// int main( void )
+// {
+//     char buffer[80];
 
-    strcpy( buffer, "World");
-    ft_memmove( buffer+1, buffer, 79 );
-    printf ("%s\n", buffer);
+//     strcpy( buffer, "World");
+//     ft_memmove( buffer+1, buffer, 79 );
+//     printf ("%s\n", buffer);
     
-}
+// }
