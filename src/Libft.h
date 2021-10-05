@@ -35,8 +35,17 @@ char *ft_strnstr (const char *str, const char *to_find, size_t len);
 // ^need to test all this shit
 // part 2
 
-char *ft_substr(char const *s, unsigned int start, size_t len);   //untested
-char	*ft_strjoin(char const *s1, char const *s2);              //incomplete  
+char    *ft_substr(char const *s, unsigned int start, size_t len);          //untested
+char	*ft_strjoin(char const *s1, char const *s2);                        //incomplete  
+char    *ft_itoa(int n);                                                    //untested
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char));             //untested
+void ft_striteri(char *s, void (*f)(unsigned int, char*));                  //not sure if understood correctly otherwise untested
+
+
+
+
+
+
 
 
 #endif
