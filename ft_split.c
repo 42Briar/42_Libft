@@ -1,5 +1,16 @@
 #include "Libft.h"
 
+static char	**errorfree(char **out)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (out[i])
+		free(out[i++]);
+	free(out);
+	return (NULL);
+}
+
 static int	wordlen(char const *s, char c)
 {
 	int	i;
@@ -30,10 +41,27 @@ static int	wordsnum(char const *s, char c)
 	return (++words);
 }
 
+static char	*wordadd(char const *s, char c)
+{
+	char	*out;
+	int		i;
+
+	i = 0;
+	out = (char *)malloc(sizeof(char) * (wordlen(s, c) + 1));
+	if (!out)
+		return ("NULL");
+	while (s[i] != c && s[i])
+	{
+		out[i] = s[i];
+		i++;
+	}	
+	out[i] = 0;
+	return (out);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	int		i;
-	int		j;
 	int		k;
 	char	**out;
 
@@ -46,15 +74,13 @@ char	**ft_split(char const *s, char c)
 		i++;
 	while (s[i])
 	{
-		j = 0;
-		out[k] = (char *)malloc(sizeof(char) * (wordlen(&s[i], c) + 1));
+		out[k] = wordadd(&s[i], c);
 		if (!out[k])
-			return (NULL);
-		while (s[i] != c && s[i])
-			out[k][j++] = s[i++];
+			return (errorfree(out));
+		i += wordlen(&s[i], c);
 		while (s[i] == c)
 			i++;
-		out[k++][j] = 0;
+		k++;
 	}
 	out[k] = NULL;
 	return (out);
