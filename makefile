@@ -2,10 +2,10 @@ NAME = libft.a
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 AR = ar rcs
-SRC = ${shell find . -name '*.c'}
+SRCDIR	= src
+SRC = ${shell find ${SRCDIR} -name '*.c'}
 OBJ = $(SRC:.c=.o)
 RM = rm -f
-GREEN = 
 
 all: ${NAME}
 
@@ -19,9 +19,8 @@ clean:
 
 fclean: clean
 			@${RM} ${NAME}
-			@echo 'Object filed cleaned, archive cleaned'
+			@echo 'Archive cleaned'
 
 re: fclean all
-
 
 .PHONY: all, clean, fclean, re
