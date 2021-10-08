@@ -6,7 +6,7 @@
 /*   By: pvan-dij <pvan-dij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/07/12 16:45:29 by pvan-dij      #+#    #+#                 */
-/*   Updated: 2021/10/08 12:21:07 by pvan-dij      ########   odam.nl         */
+/*   Updated: 2021/10/08 15:37:14 by pvan-dij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	i = 0;
 	j = 0;
-	if (!little || !*little)
+	if (!*little)
 		return ((char *)big);
-	while (big[i] != 0 && i < len - 1)
+	while (big[i] != 0 && i < len)
 	{
 		while (big[i + j] == little[j] && i + j < len)
 		{

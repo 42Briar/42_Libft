@@ -13,7 +13,7 @@ void	*ft_memchr(void *buf, int c, size_t len);
 void	*ft_calloc(size_t n, size_t size);
 
 int		ft_memcmp(const void *str1, const void *str2, size_t len);
-int		ft_strncmp(char *s1, char *s2, size_t n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi(const char *str);	
 int		ft_tolower(int c);
 int		ft_isalpha(int c);
@@ -30,7 +30,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 char	*ft_strdup(const char *str);
 char	*ft_strrchr(const char *s, int c);
-char	*ft_strchr(char *s, int c);
+char	*ft_strchr(const char *s, int c);
 char	*ft_strnstr(const char *str, const char *to_find, size_t len);
 char	*ft_strrev(char *str);
 

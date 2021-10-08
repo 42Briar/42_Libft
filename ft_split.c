@@ -6,7 +6,7 @@
 /*   By: pvan-dij <pvan-dij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/08 12:18:55 by pvan-dij      #+#    #+#                 */
-/*   Updated: 2021/10/08 12:21:47 by pvan-dij      ########   odam.nl         */
+/*   Updated: 2021/10/08 15:24:20 by pvan-dij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,16 @@ static int	wordsnum(char const *s, char c)
 	int	i;
 	int	words;
 
-	i = 0;
+	i = -1;
 	words = 0;
-	while (s[i] == c)
-		i++;
-	while (s[i])
+	while (s[++i] != 0)
 	{
-		if ((s[i] == c && s[i]) && (s[i + 1] != c))
+		if (s[i] != c)
 			words++;
-		i++;
+		while (s[i] != c && s[i + 1])
+			i++;
 	}
-	return (++words);
+	return (words);
 }
 
 static char	*wordadd(char const *s, char c)
@@ -61,7 +60,7 @@ static char	*wordadd(char const *s, char c)
 	i = 0;
 	out = (char *)malloc(sizeof(char) * (wordlen(s, c) + 1));
 	if (!out)
-		return ("NULL");
+		return (NULL);
 	while (s[i] != c && s[i])
 	{
 		out[i] = s[i];
@@ -82,7 +81,7 @@ char	**ft_split(char const *s, char c)
 	out = (char **)malloc(sizeof(char *) * (wordsnum(s, c) + 1));
 	if (!out)
 		return (NULL);
-	while (s[i] == c)
+	while (s[i] == c && s[i])
 		i++;
 	while (s[i])
 	{
@@ -90,7 +89,7 @@ char	**ft_split(char const *s, char c)
 		if (!out[k])
 			return (errorfree(out));
 		i += wordlen(&s[i], c);
-		while (s[i] == c)
+		while (s[i] == c && s[i])
 			i++;
 		k++;
 	}

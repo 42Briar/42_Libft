@@ -37,7 +37,7 @@ SRC = ft_atoi.c \
 		ft_strtrim.c \
 		ft_substr.c \
 		ft_tolower.c \
-		ft_toupper.c \
+		ft_toupper.c 
 
 OBJ = $(SRC:.c=.o) 
 RM = rm -f
@@ -59,4 +59,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all, clean, fclean, re
-
