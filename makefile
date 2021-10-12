@@ -2,6 +2,8 @@ NAME = libft.a
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 AR = ar rcs
+RM = rm -f
+
 SRC = ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
@@ -39,17 +41,37 @@ SRC = ft_atoi.c \
 		ft_tolower.c \
 		ft_toupper.c 
 
+BONUS = ft_lstnew.c \
+			ft_lstadd_front.c \
+			ft_lstsize.c \
+			ft_lstlast.c \
+			ft_lstadd_back.c \
+			ft_lstdelone.c \
+			ft_lstclear.c \
+			ft_lstiter.c
+
+
 OBJ = $(SRC:.c=.o) 
-RM = rm -f
+OBJ_BONUS = $(BONUS:.c=.o) 
+
+.c.o:
+		${CC} ${FLAGS} -g -c $< -o ${<:.c=.o}
+
 
 all: ${NAME}
 
-${NAME}: 
-			${CC} ${FLAGS} -c ${SRC}
+${NAME}: ${OBJ}
+			
 			${AR} ${NAME} ${OBJ}
 			echo 'Archive created, object files created'
+
+bonus:	${OBJ} ${OBJ_BONUS}
+			${AR} ${NAME} ${OBJ} ${OBJ_BONUS}
+			echo 'Archive created with bonus, object files created'
+
+
 clean:	
-			${RM} ${OBJ}
+			${RM} ${OBJ} ${OBJ_BONUS}
 			echo 'Object files cleaned'
 
 fclean: clean
@@ -58,4 +80,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: all, clean, fclean, re, bonus
