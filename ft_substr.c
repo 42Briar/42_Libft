@@ -6,7 +6,7 @@
 /*   By: pvan-dij <pvan-dij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/08 12:19:39 by pvan-dij      #+#    #+#                 */
-/*   Updated: 2021/10/08 14:29:19 by pvan-dij      ########   odam.nl         */
+/*   Updated: 2021/10/12 16:31:28 by pvan-dij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (start > strlen)
 		return (ft_strdup(""));
-	if (len > strlen)
-		return (ft_strdup(s));
+	if (len > strlen - start)
+		return (ft_strdup(s + start));
 	out = (char *)malloc((len + 1) * sizeof(char));
 	if (!out)
 		return (NULL);
