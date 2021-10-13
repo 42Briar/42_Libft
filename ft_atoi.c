@@ -6,7 +6,7 @@
 /*   By: pvan-dij <pvan-dij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/08 12:17:31 by pvan-dij      #+#    #+#                 */
-/*   Updated: 2021/10/08 12:22:41 by pvan-dij      ########   odam.nl         */
+/*   Updated: 2021/10/13 15:40:15 by pvan-dij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	while (str[i] >= 48 && str[i] <= 57)
-		returnal = returnal * 10 + (str[i++] - 48);
+	{
+		returnal = returnal * 10 + (str[i] - 48);
+		i++;
+	}
 	if (count == -1)
 		returnal = -returnal;
 	return (returnal);

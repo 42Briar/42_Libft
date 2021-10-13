@@ -6,7 +6,7 @@
 /*   By: pvan-dij <pvan-dij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/08 12:17:34 by pvan-dij      #+#    #+#                 */
-/*   Updated: 2021/10/08 12:22:37 by pvan-dij      ########   odam.nl         */
+/*   Updated: 2021/10/13 15:40:29 by pvan-dij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	ft_bzero(void *s, size_t n)
 	dest = s;
 	while (n > 0)
 	{
-		*dest++ = 0;
+		*dest = 0;
+		dest++;
 		n--;
 	}
 }

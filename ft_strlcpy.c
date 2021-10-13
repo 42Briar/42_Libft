@@ -6,7 +6,7 @@
 /*   By: pvan-dij <pvan-dij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/08 12:19:12 by pvan-dij      #+#    #+#                 */
-/*   Updated: 2021/10/08 12:21:22 by pvan-dij      ########   odam.nl         */
+/*   Updated: 2021/10/13 15:45:27 by pvan-dij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		return (srclen);
 	while (*src != 0 && i < (size - 1))
 	{
-		*dst++ = *src++;
+		*dst = *src;
+		dst++;
+		src++;
 		i++;
 	}
 	*dst = 0;

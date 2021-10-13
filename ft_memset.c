@@ -6,7 +6,7 @@
 /*   By: pvan-dij <pvan-dij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/08 12:18:41 by pvan-dij      #+#    #+#                 */
-/*   Updated: 2021/10/08 12:22:02 by pvan-dij      ########   odam.nl         */
+/*   Updated: 2021/10/13 15:44:43 by pvan-dij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	*ft_memset(void *dst, int c, size_t len)
 	dest = dst;
 	while (len > 0)
 	{
-		dest[i++] = c;
+		dest[i] = c;
+		i++;
 		len--;
 	}
 	return (dest);

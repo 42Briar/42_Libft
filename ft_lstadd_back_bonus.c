@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstadd_back.c                                   :+:    :+:            */
+/*   ft_lstadd_back_bonus.c                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pvan-dij <pvan-dij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/12 20:34:17 by pvan-dij      #+#    #+#                 */
-/*   Updated: 2021/10/13 12:37:34 by pvan-dij      ########   odam.nl         */
+/*   Updated: 2021/10/13 15:13:26 by pvan-dij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (!lst || !new)
-		return ;
-	if (*lst == NULL)
+	t_list	*temp;
+
+	if (!*lst)
+	{
 		*lst = new;
-	else
-		ft_lstlast((*lst)->next = new);
+		return ;
+	}
+	temp = ft_lstlast(*lst);
+	temp->next = new;
 }

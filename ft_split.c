@@ -6,7 +6,7 @@
 /*   By: pvan-dij <pvan-dij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/08 12:18:55 by pvan-dij      #+#    #+#                 */
-/*   Updated: 2021/10/08 15:24:20 by pvan-dij      ########   odam.nl         */
+/*   Updated: 2021/10/13 15:45:09 by pvan-dij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,15 @@ static int	wordsnum(char const *s, char c)
 	int	i;
 	int	words;
 
-	i = -1;
+	i = 0;
 	words = 0;
-	while (s[++i] != 0)
+	while (s[i] != 0)
 	{
 		if (s[i] != c)
 			words++;
 		while (s[i] != c && s[i + 1])
 			i++;
+		i++;
 	}
 	return (words);
 }

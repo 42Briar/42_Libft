@@ -6,7 +6,7 @@
 /*   By: pvan-dij <pvan-dij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/08 12:18:39 by pvan-dij      #+#    #+#                 */
-/*   Updated: 2021/10/08 12:22:04 by pvan-dij      ########   odam.nl         */
+/*   Updated: 2021/10/13 15:44:33 by pvan-dij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,13 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		return (dst);
 	dest = dst;
 	if (src < dst)
-		while (len--)
+	{
+		while (len)
+		{
 			dest[len] = ((unsigned char *)src)[len];
+			len--;
+		}
+	}	
 	else
 		ft_memcpy(dst, src, len);
 	return (dst);

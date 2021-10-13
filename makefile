@@ -39,7 +39,7 @@ SRC = ft_atoi.c \
 		ft_strtrim.c \
 		ft_substr.c \
 		ft_tolower.c \
-		ft_toupper.c 
+		ft_toupper.c
 
 BONUS = ft_lstnew_bonus.c \
 			ft_lstadd_front_bonus.c \
@@ -52,17 +52,17 @@ BONUS = ft_lstnew_bonus.c \
 			ft_lstmap_bonus.c
 
 
-OBJ = $(SRC:.c=.o) 
-OBJ_BONUS = $(BONUS:.c=.o) 
+OBJ = $(SRC:.c=.o)
+OBJ_BONUS = $(BONUS:.c=.o)
 
 .c.o:
 		${CC} ${FLAGS} -g -c $< -o ${<:.c=.o}
 
 
-all: ${NAME}
+all: $(NAME)
 
-${NAME}: ${OBJ}
-			
+$(NAME): ${OBJ}
+
 			${AR} ${NAME} ${OBJ}
 			echo 'Archive created, object files created'
 
@@ -71,7 +71,7 @@ bonus:	${OBJ} ${OBJ_BONUS}
 			echo 'Archive created with bonus, object files created'
 
 
-clean:	
+clean:
 			${RM} ${OBJ} ${OBJ_BONUS}
 			echo 'Object files cleaned'
 
