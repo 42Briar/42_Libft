@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstclear.c                                      :+:    :+:            */
+/*   ft_lstclear_bonus.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pvan-dij <pvan-dij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/12 20:47:47 by pvan-dij      #+#    #+#                 */
-/*   Updated: 2021/10/13 12:03:47 by pvan-dij      ########   odam.nl         */
+/*   Updated: 2021/10/13 13:44:14 by pvan-dij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,13 @@
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {	
 	t_list	*temp;
-	t_list	*cur;
 
-	if (!(*lst))
+	if (!*lst || !lst || !del)
 		return ;
-	temp = NULL;
-	while (temp != NULL)
-	{	
-		cur = *lst;
-		temp = cur->next;
-		del(cur->content);
-		free(cur);
+	while (lst && *lst)
+	{
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
 	}
-	*lst = NULL;
 }
