@@ -6,17 +6,17 @@
 /*   By: pvan-dij <pvan-dij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/08 12:17:31 by pvan-dij      #+#    #+#                 */
-/*   Updated: 2021/10/13 15:40:15 by pvan-dij      ########   odam.nl         */
+/*   Updated: 2021/11/01 20:16:30 by pvan-dij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	i;
-	int	count;
-	int	returnal;
+	int		i;
+	int		count;
+	long	returnal;
 
 	i = 0;
 	count = 0;

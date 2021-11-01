@@ -39,7 +39,11 @@ SRC = ft_atoi.c \
 		ft_strtrim.c \
 		ft_substr.c \
 		ft_tolower.c \
-		ft_toupper.c
+		ft_toupper.c \
+		ft_memalloc.c \
+		ft_arrlen.c \
+		ft_hextoint.c \
+		ft_swap.c
 
 BONUS = ft_lstnew_bonus.c \
 			ft_lstadd_front_bonus.c \
@@ -55,29 +59,28 @@ BONUS = ft_lstnew_bonus.c \
 OBJ = $(SRC:.c=.o)
 OBJ_BONUS = $(BONUS:.c=.o)
 
+GREEN   = \x1b[32m
+LGREEN = \x1b[92m
+RESET = \033[0m
+
 .c.o:
-		${CC} ${FLAGS} -g -c $< -o ${<:.c=.o}
+	@${CC} ${FLAGS} -g -c $< -o ${<:.c=.o}
+
 
 
 all: $(NAME)
 
 $(NAME): ${OBJ}
-
-			${AR} ${NAME} ${OBJ}
-			echo 'Archive created, object files created'
+	@${AR} ${NAME} ${OBJ}
 
 bonus:	${OBJ} ${OBJ_BONUS}
-			${AR} ${NAME} ${OBJ} ${OBJ_BONUS}
-			echo 'Archive created with bonus, object files created'
-
+	@${AR} ${NAME} ${OBJ} ${OBJ_BONUS}
 
 clean:
-			${RM} ${OBJ} ${OBJ_BONUS}
-			echo 'Object files cleaned'
+	@${RM} ${OBJ} ${OBJ_BONUS}
 
 fclean: clean
-			${RM} ${NAME}
-			echo 'Archive cleaned'
+	@${RM} ${NAME}
 
 re: fclean all
 
