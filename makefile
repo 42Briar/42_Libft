@@ -43,7 +43,8 @@ SRC = ft_atoi.c \
 		ft_memalloc.c \
 		ft_arrlen.c \
 		ft_hextoint.c \
-		ft_swap.c
+		ft_swap.c \
+		ft_arrjoin.c
 
 BONUS = ft_lstnew_bonus.c \
 			ft_lstadd_front_bonus.c \
@@ -64,6 +65,7 @@ LGREEN = \x1b[92m
 RESET = \033[0m
 
 .c.o:
+	@printf "\rCompiling  $(notdir $<)"
 	@${CC} ${FLAGS} -g -c $< -o ${<:.c=.o}
 
 
@@ -72,6 +74,7 @@ all: $(NAME)
 
 $(NAME): ${OBJ}
 	@${AR} ${NAME} ${OBJ}
+	@printf "\nDone!\n"
 
 bonus:	${OBJ} ${OBJ_BONUS}
 	@${AR} ${NAME} ${OBJ} ${OBJ_BONUS}
